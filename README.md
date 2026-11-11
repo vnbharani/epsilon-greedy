@@ -1,8 +1,8 @@
 # Exploration vs exploitation: when the support agent meets a failure it has never seen
 
-**Date:** Sunday, Nov 8, 2026 · **Status:** Draft — paper in progress · **Problem 15** — Daily Architect Problems (CCA prep)
+**Date:** Sunday, Nov 8, 2026 · **Status:** Draft — paper in progress · **Problem 15** — Daily Architect Problems
 
-Part of *Daily Architect Problems* — applied agentic-design problems from Claude Certified Architect (CCA) prep, grounded in a real production agent. This folder is self-contained: publish it on its own as its own repo.
+Part of *Daily Architect Problems* — applied agentic-design problems grounded in a real production agent. This folder is self-contained: publish it on its own as its own repo.
 
 ## The problem
 
