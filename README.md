@@ -22,7 +22,7 @@ I measure whether exploration pays off with cost per novel ticket resolved by ex
 
 ## My design paper
 
-`my-design-paper-DRAFT.md` — my Nov 8 draft, reproduced verbatim, including voice-dictation quirks. Still a draft: I'm folding in the blast-radius tiers and the payoff metric from my Nov 11 follow-up now.
+`exploration-exploitation-DRAFT.md` — my Nov 8 draft, reproduced verbatim, including voice-dictation quirks. Still a draft: I'm folding in the blast-radius tiers and the payoff metric from my Nov 11 follow-up now.
 
 ## The example
 
@@ -34,7 +34,7 @@ Run it with no setup: `python3 15_exploration_exploitation.py`
 
 - `problem.md` — the full problem statement (scenario, task, self-check)
 - `15_exploration_exploitation.py` — runnable example sketch
-- `my-design-paper-DRAFT.md` — my draft design paper (verbatim, in progress)
+- `exploration-exploitation-DRAFT.md` — my draft design paper (verbatim, in progress)
 
 ## References
 
