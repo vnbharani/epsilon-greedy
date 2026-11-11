@@ -2,7 +2,7 @@
 
 ## The problem
 
-A support agent handling 400 tickets a day meets a checkout error it has never seen — "payment gateway timeout after 3DS" — with no episode above 0.6 similarity and a 14-month-old wiki runbook. I had to design the exploration policy: when to explore vs escalate, how to bound attempts, what makes a new path worth keeping, how it gets written back as an episode, and what metric proves exploration pays off.
+A support agent handling 350 tickets a day meets a checkout error it has never seen — "payment gateway timeout on card authorization" — with no episode above 0.6 similarity and a 11-month-old wiki runbook. I had to design the exploration policy: when to explore vs escalate, how to bound attempts, what makes a new path worth keeping, how it gets written back as an episode, and what metric proves exploration pays off.
 
 ## How I solved it
 
