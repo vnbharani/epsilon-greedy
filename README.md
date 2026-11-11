@@ -38,5 +38,6 @@ Run it with no setup: `python3 15_exploration_exploitation.py`
 
 ## References
 
-- Arun C. "BARC: Blast-Radius-Aware Agentic Control." March 2026. https://arun7.com/papers/BARC_Paper_v2.pdf — the blast-radius model behind my tiers: every tool classified into read-only, draft, bounded write, or irreversible, with safety enforced by tier rather than by model confidence.
+- Saltzer, J. H., & Schroeder, M. D. "The Protection of Information in Computer Systems." Proceedings of the IEEE, 1975 — least privilege: every program operates with the least set of privileges necessary to complete the job. My tiers are that principle applied to agent tools: what a tool may do is set by its consequence, not by the model's confidence.
+- Anthropic. "Building effective agents." Dec 2024. https://www.anthropic.com/engineering/building-effective-agents — tool design as an agent-computer interface: scope tools narrowly, document them well, and keep humans in the loop for consequential actions.
 - Gullí, Antonio. *Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems*. Springer, 2025. https://link.springer.com/book/10.1007/978-3-032-01402-3 — the pattern vocabulary I study (ch. 21, exploration).
