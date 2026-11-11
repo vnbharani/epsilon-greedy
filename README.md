@@ -16,13 +16,13 @@ Escalate when the tries are up, or there is no strong evidence anywhere. That is
 
 Short version: exploit when memory matches fresh and the evidence agrees. Explore when it doesn't. Escalate when exploring finds nothing solid.
 
-I tier blast radius by consequence, not confidence. Read-only checks run free (ClickHouse MCP, telemetry API). A bounded write — a Jira ticket for the dev agent — is gated by an idempotency key: the key is a hash of the support ticket ID plus the action, so a retry returns the same ticket instead of creating a second one. Git push and commit are human-only, through a PR after a human checks the dev agent's code. I stop hard at 3 tries, no evidence found, or the $5 budget — and on stopping without an answer I escalate with my analysis, including what was verified NOT the issue. Confidence is evidence, not a score — HIGH needs the exact piece of evidence in both the code and the logs.
+I tier blast radius by consequence, not confidence. Read-only checks run free (a log solution like Splunk, observability API). A bounded write — a ticket for the dev agent in the ticketing solution — is gated by an idempotency key: the key is a hash of the support ticket ID plus the action, so a retry returns the same ticket instead of creating a second one. Git push and commit are human-only, through a PR after a human checks the dev agent's code. I stop hard at 3 tries, no evidence found, or the $5 budget — and on stopping without an answer I escalate with my analysis, including what was verified NOT the issue. Confidence is evidence, not a score — HIGH needs the exact piece of evidence in both the code and the logs.
 
 I measure whether exploration pays off with cost per novel ticket resolved by exploration vs by escalation, plus episode reuse rate — how often an explore writes an episode that later gets reused.
 
 ## My design paper
 
-`her-design-paper-DRAFT.md` — my Nov 8 draft, reproduced verbatim, including voice-dictation quirks. Still a draft: I'm folding in the blast-radius tiers and the payoff metric from my Nov 11 follow-up now.
+`my-design-paper-DRAFT.md` — my Nov 8 draft, reproduced verbatim, including voice-dictation quirks. Still a draft: I'm folding in the blast-radius tiers and the payoff metric from my Nov 11 follow-up now.
 
 ## The example
 
@@ -34,7 +34,7 @@ Run it with no setup: `python3 15_exploration_exploitation.py`
 
 - `problem.md` — the full problem statement (scenario, task, self-check)
 - `15_exploration_exploitation.py` — runnable example sketch
-- `her-design-paper-DRAFT.md` — my draft design paper (verbatim, in progress)
+- `my-design-paper-DRAFT.md` — my draft design paper (verbatim, in progress)
 
 ## References
 
