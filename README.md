@@ -19,9 +19,21 @@ A support agent handling 400 tickets a day meets a checkout error it has never s
 
 `15_exploration_exploitation.py` is an illustrative sketch of one core mechanism in this problem: a try is one full loop of up to 50 turns for a novel failure, and each try carries forward the negative evidence of the tries before it ("where not to check"), so the next try searches somewhere else instead of repeating the last one. Confidence is evidence, not a score — HIGH needs the exact piece of evidence in both the code and the logs. Blast radius is tiered by consequence, not confidence: read-only checks run free, a bounded write (retry with an idempotency key) is proposed but never executed without a human, and irreversible actions (refunds) are human-only. The stop is hard — 3 tries, no evidence found, or the $5 cost budget — and on stopping without an answer the agent escalates with its analysis, including what was verified NOT the issue. It uses only the Python standard library. It is **not** the answer, **not** production code, and **not** the real agent's code — it is scaffolding to help you see the mechanism run.
 
+## When to explore, when to exploit
+
+Exploit when the case matches something in memory — a bug registry entry or an episode — and the match is fresh and the evidence lines up. Fresh means seen recently (here: within the last 14 days). Evidence means the current case shows the same thing in the logs and the code that the episode shows. Exploit because it is cheap and proven: no exploration spend, and the fix already worked once. But never exploit on the match alone — the system may have changed since the episode was written, so check the current evidence first. A match with mismatched evidence is not a match.
+
+Explore when there is no match, or the match is stale, or the evidence doesn't line up. That is the novel case — nobody has solved this one before. Exploring costs money and tries (here: a $5 budget and a 3-try gate), but it writes a new episode, and that episode is what the next case exploits. Today's explore is tomorrow's exploit.
+
+The middle case: a match exists but the evidence is only partial. Then explore, but start from the episode — it tells you where to look first, and just as important, where it already checked and found nothing. That is the negative evidence doing its job.
+
+Escalate when the tries are up, or there is no strong evidence anywhere. That is not failure, it is the safe branch — a human decides instead of the agent guessing.
+
+Short version: exploit when memory matches fresh and the evidence agrees. Explore when it doesn't. Escalate when exploring finds nothing solid.
+
 ## The draft paper
 
-`her-design-paper-DRAFT.md` — the author's own Nov 8 design draft, reproduced verbatim (including voice-dictation quirks). Still open: the blast-radius limit and the payoff metric (question 5). Read it after you've written your own paper, to compare decisions.
+`her-design-paper-DRAFT.md` — the author's own Nov 8 design draft, reproduced verbatim (including voice-dictation quirks). The blast-radius tiers and the payoff metric were closed in a Nov 11 follow-up — tiers: read-only ClickHouse MCP + telemetry API, bounded-write Jira ticket with idempotency key, human-only git push/commit via PR; explore/exploit rule: exploit if in the bug registry within the last 14 days, else explore, escalate to a human if no strong evidence in logs or code; payoff metric: cost per novel ticket resolved by exploration vs by escalation, plus episode reuse rate. The paper itself is still a draft until the final version is written with these folded in. Read it after you've written your own paper, to compare decisions.
 
 ## Files
 
